@@ -37,7 +37,7 @@ int knapsack(int capacity, int number_of_items, int items_weights[MAX_CONSTRAINT
         printf("========== Item %d: weight = %d, value = %d ==========\n", 
             current_item, items_weights[current_item], items_values[current_item]);
         
-        for(current_capacity = 0; current_capacity <= capacity; current_capacity++) {
+        for(current_capacity = 0; current_capacity <= capacity; ++current_capacity) {
             
             if(current_capacity < items_weights[current_item]) {
                 optimised_value = values_matrix[current_item - 1][current_capacity];
@@ -51,7 +51,7 @@ int knapsack(int capacity, int number_of_items, int items_weights[MAX_CONSTRAINT
                 
                 for(current_item_quantity = 1; 
                     current_item_quantity <= current_capacity / items_weights[current_item]; 
-                    ++ current_item_quantity) 
+                    ++current_item_quantity) 
                 {
                     int current_value = current_item_quantity * items_values[current_item] + values_matrix[current_item - 1][current_capacity - items_weights[current_item] * current_item_quantity];
                     
